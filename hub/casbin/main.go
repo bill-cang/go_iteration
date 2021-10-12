@@ -23,7 +23,7 @@ func check(e *casbin.Enforcer, sub, obj, act string) {
 }
 
 func main() {
-	a, err := gormadapter.NewAdapter("mysql", "ckx:passwordbyCKX@tcp(47.98.231.220:3306)/registrar",true)
+	a, err := gormadapter.NewAdapter("mysql", "ckx:@tcp(47.98.231.220:3306)/registrar",true)
 	if err != nil {
 		fmt.Print(err)
 		return
