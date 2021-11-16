@@ -8,8 +8,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
-
 	"github.com/casbin/casbin/v2"
 	gormadapter "github.com/casbin/gorm-adapter/v2"
 	_ "github.com/go-sql-driver/mysql"
@@ -27,39 +25,33 @@ func check(e *casbin.Enforcer, sub, obj, act string) {
 func main() {
 
 	//mysql
-	/*	Enforcer, err := gormadapter.NewAdapter("mysql", "ckx:@tcp(47.98.231.220:3306)/registrar", true)
-		if err != nil {
-			fmt.Print(err)
-			return
-		}*/
-
-	//gorm
-	dsn := "ckx:@tcp(47.98.231.220:3306)/registrar"
-	dbconn, err := gorm.Open("mysql", dsn)
+	Enforcer, err := gormadapter.NewAdapter("mysql", "ckx:pwdByCkx*@tcp(47.98.231.220:3306)/registrar", true)
 	if err != nil {
-		fmt.Println("connect DB error")
-		panic(err)
+		fmt.Print(err)
+		return
 	}
-	// 将数据库连接同步给插件， 插件用来操作数据库
-	adt, err := gormadapter.NewAdapterByDB(dbconn)
-	if err != nil {
-		fmt.Println("connect DB error")
-		panic(err)
-	}
-	// 这里也可以使用原生字符串方式
-	//
-	Enforcer, _ := casbin.NewEnforcer("./model.conf", adt)
 
 	e, _ := casbin.NewEnforcer("D:\\WorkSpace\\go_iteration\\hub\\casbin\\model.conf", Enforcer)
 
-	enforce, err := e.Enforce("dajun", "data1", "read")
+	checkRoot(e)
+	checkRole(e)
+	checkUser(e)
+}
+
+//校验-超级账户无碍通过
+func checkRoot(e *casbin.Enforcer) {
+	enforce, err := e.Enforce("root", "object", "read")
 	fmt.Printf("enforce =%t, err =%+v\n", enforce, err)
-	enforce2, err2 := e.Enforce("dajun", "data2", "read")
-	fmt.Printf("enforce2 =%t, err2 =%+v\n", enforce2, err2)
+}
 
-	/*	check(e, "lizi", "data1", "write")
-		check(e, "lizi", "data2", "read")
-		check(e, "dajun", "data1", "write")
-		check(e, "dajun", "data2", "read")*/
+//校验-角色匹配通过
+func checkRole(e *casbin.Enforcer) {
+	enforce2, err2 := e.Enforce("engineer", "object", "read")
+	fmt.Printf("enforce =%t, err2 =%+v\n", enforce2, err2)
+}
 
+//校验-用户匹配通过
+func checkUser(e *casbin.Enforcer) {
+	enforce, err := e.Enforce("ckx", "object", "read")
+	fmt.Printf("enforce =%t, err =%+v\n", enforce, err)
 }
