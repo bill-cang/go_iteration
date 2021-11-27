@@ -14,3 +14,13 @@ func TestConv2DEC(t *testing.T) {
 	dec := Conv2DEC("1011")
 	fmt.Print(dec)
 }
+
+func TestConv2DEC2(t *testing.T) {
+	for i := 0; i < 100; i++ {
+		fmt.Println(i)
+	}
+}
+
+func TestConv2DEC3(t *testing.T) {
+
+}
