@@ -26,7 +26,6 @@ func main() {
 	mqtt.ERROR = log.New(os.Stdout, "", 0)
 	opts := mqtt.NewClientOptions().AddBroker("tcp://47.98.231.220:1883").
 		SetClientID("community-health-device:123456").
-		SetPassword("ZGZYZZJ-001-CKX").
 		SetUsername("admin").
 		SetPassword("ZGZYZZJ-001-CKX")
 

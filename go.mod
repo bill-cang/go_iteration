@@ -8,7 +8,7 @@ require (
 	github.com/casbin/gorm-adapter/v2 v2.1.0
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
 	github.com/docker/docker v20.10.9+incompatible
-	github.com/eclipse/paho.mqtt.golang v1.3.5
+	github.com/eclipse/paho.mqtt.golang v1.2.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/google/gopacket v1.1.19
@@ -16,7 +16,6 @@ require (
 	github.com/montanaflynn/stats v0.6.6
 	github.com/oklog/ulid/v2 v2.0.2
 	github.com/robfig/cron/v3 v3.0.1
-	github.com/valyala/fasthttp v1.31.0
 	github.com/xyproto/permissions2 v0.0.0-20210728112904-5a3038edf035
 	github.com/yedf/dtm v1.0.0
 	github.com/zcalusic/sysinfo v0.0.0-20210905121133-6fa2f969a900
@@ -25,7 +24,6 @@ require (
 require (
 	github.com/Microsoft/go-winio v0.4.17 // indirect
 	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
-	github.com/andybalholm/brotli v1.0.2 // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/containerd/containerd v1.5.7 // indirect
 	github.com/docker/distribution v2.7.1+incompatible // indirect
@@ -42,13 +40,11 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gomodule/redigo v2.0.0+incompatible // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
-	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/jaypipes/pcidb v0.6.0 // indirect
 	github.com/jinzhu/gorm v1.9.12 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.2 // indirect
 	github.com/json-iterator/go v1.1.10 // indirect
-	github.com/klauspost/compress v1.13.4 // indirect
 	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/lib/pq v1.1.1 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
@@ -62,7 +58,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
-	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/xyproto/cookie v0.0.0-20210319112338-2e0ffd4b75a9 // indirect
 	github.com/xyproto/pinterface v0.0.0-20200807103852-04e20752b31c // indirect
 	github.com/xyproto/randomstring v0.0.0-20181222003104-0f764aabc45a // indirect
