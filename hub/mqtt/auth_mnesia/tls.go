@@ -12,7 +12,7 @@ import (
 	"log"
 )
 
-var tlsConfig = NewTlsConfig()
+//var tlsConfig = NewTlsConfig()
 
 func NewTlsConfig() *tls.Config {
 	certpool := x509.NewCertPool()
