@@ -33,10 +33,15 @@ func TestGetZip(t *testing.T) {
 	cf.Put("1.png", bytes)
 	cf.Put("2.png", file)
 
-	buf, err := cf.Press()
-	err = TouchFile("./test.zip", buf.Bytes())
+	err := cf.Touch("./test.zip")
 	if err != nil {
 		fmt.Printf("err =%+v", err)
 	}
+
+	/*	buf, err := cf.Press()
+		err = FileTouch("./test.zip", buf.Bytes())
+		if err != nil {
+			fmt.Printf("err =%+v", err)
+		}*/
 
 }

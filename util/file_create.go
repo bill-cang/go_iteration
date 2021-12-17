@@ -16,7 +16,7 @@ var (
 params[0] flag = 0 maybe default
 params[0] FileMode = nil is 0777
 */
-func TouchFile(fileName string, bytes []byte, params ...interface{}) error {
+func FileTouch(fileName string, bytes []byte, params ...interface{}) error {
 	file, err := os.OpenFile(fileName, defFlag, defFileModel)
 	if err != nil {
 		return err

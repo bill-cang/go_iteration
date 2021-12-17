@@ -1,7 +1,7 @@
 /*
 @Time   : 2021/12/15 18:04
 @Author : ckx0709
-@Remark :
+@Remark : 文件压缩
 */
 package util
 
@@ -10,10 +10,8 @@ import (
 	"bytes"
 )
 
-//压缩文件
+//压缩文件实体map[文件名]文件字节流
 type FilesCompress struct {
-	/*	FileName string //文件名
-		Body     []byte //文件内容*/
 	Files map[string][]byte
 }
 
@@ -29,7 +27,7 @@ func (c *FilesCompress) Put(fileName string, fileBody []byte) {
 	c.Files[fileName] = fileBody
 }
 
-//输出压缩buf
+//输出压缩buffer
 func (c *FilesCompress) Press() (buf *bytes.Buffer, err error) {
 	buf = new(bytes.Buffer)
 	w := zip.NewWriter(buf)
@@ -45,4 +43,13 @@ func (c *FilesCompress) Press() (buf *bytes.Buffer, err error) {
 		}
 	}
 	return
+}
+
+//输出压缩文件
+func (c FilesCompress) Touch(filePath string) (err error) {
+	buf, err := c.Press()
+	if err != nil {
+		return err
+	}
+	return FileTouch(filePath, buf.Bytes())
 }
