@@ -25,6 +25,10 @@ func main() {
 		SetClientID(fmt.Sprintf("community-health-device:%d", 123456)).
 		SetUsername("admin").
 		SetPassword("Airobot@emqx202103")
+/*	opts := mqtt.NewClientOptions().AddBroker("tcp://47.98.231.220:1883").
+		SetClientID(fmt.Sprintf("community-health-device:%d", 123456)).
+		SetUsername("adminCKX002").
+		SetPassword("ZGZYZZJ-001-CKX")*/
 
 	opts.SetKeepAlive(60 * time.Second)
 	// 设置消息回调处理函数
@@ -37,7 +41,7 @@ func main() {
 	}
 
 	go subRobotCommander(c)
-	//go pubServer(c)
+	go pubServer(c)
 
 	// 断开连接
 	defer c.Disconnect(250)
@@ -52,7 +56,7 @@ func subRobotCommander(c mqtt.Client) {
 	c.Unsubscribe(topic)
 	// 订阅主题
 	for i := 0; i < 100; i++ {
-		if token := c.Subscribe(topic, 1, nil); token.Wait() && token.Error() != nil {
+		if token := c.Subscribe(topic, 0, nil); token.Wait() && token.Error() != nil {
 			fmt.Println("############", token.Error())
 		}
 		<-time.After(3 * time.Second)
