@@ -16,7 +16,7 @@ func main() {
 
 	var fileBody []byte
 	defer func() {
-		util.CreateFileWithSome("./ghw.txt", fileBody)
+		util.FileTouch("./ghw.txt", fileBody)
 	}()
 
 	if err != nil {

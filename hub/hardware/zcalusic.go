@@ -26,7 +26,7 @@ func main() {
 
 	var fileBody []byte
 	defer func() {
-		util.CreateFileWithSome("./ghw.txt", fileBody)
+		util.FileTouch("./ghw.txt", fileBody)
 	}()
 
 	var si sysinfo.SysInfo
