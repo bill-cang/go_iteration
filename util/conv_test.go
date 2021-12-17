@@ -16,11 +16,8 @@ func TestConv2DEC(t *testing.T) {
 }
 
 func TestConv2DEC2(t *testing.T) {
-	for i := 0; i < 100; i++ {
-		fmt.Println(i)
-	}
+	fmt.Printf("%.2f\n", 1.479-0.005)
+	fmt.Printf("%.2f\n", 1.475-0.005)
+	fmt.Printf("%.2f\n", 1.470-0.005)
 }
 
-func TestConv2DEC3(t *testing.T) {
-
-}

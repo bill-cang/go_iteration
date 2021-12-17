@@ -19,6 +19,7 @@ require (
 	github.com/xyproto/permissions2 v0.0.0-20210728112904-5a3038edf035
 	github.com/yedf/dtm v1.0.0
 	github.com/zcalusic/sysinfo v0.0.0-20210905121133-6fa2f969a900
+	google.golang.org/appengine v1.6.5
 )
 
 require (
