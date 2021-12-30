@@ -42,4 +42,3 @@ func TestConv2DEC5(t *testing.T) {
 	times := GetTimes(34)
 	fmt.Println(times)
 }
-

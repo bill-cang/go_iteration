@@ -16,11 +16,7 @@ import (
 params float 类型必须位float32/64；否则返回零值
 params isUp : 1:向上保留，其他：向下保留
 */
-func FloatPositionRetain(float interface{}, point int, isUp int) float64 {
-	f, ok := float.(float64)
-	if !ok {
-		return 0.0
-	}
+func FloatPositionRetain(f float64, point int, isUp int) float64 {
 	switch isUp {
 	case 1:
 		f += math.Pow(0.1, float64(point+1)) * 4.1
