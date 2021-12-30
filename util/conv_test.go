@@ -21,3 +21,12 @@ func TestConv2DEC2(t *testing.T) {
 	fmt.Printf("%.2f\n", 1.470-0.005)
 }
 
+func TestConv2DEC4(t *testing.T) {
+	holidays := GetYearHolidays("2021-03-23")
+	fmt.Println(holidays)
+}
+
+func TestConv2DEC5(t *testing.T) {
+	times := GetTimes(34)
+	fmt.Println(times)
+}
