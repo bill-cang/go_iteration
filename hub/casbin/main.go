@@ -23,7 +23,11 @@ func main() {
 		return
 	}
 
-	enforcer, err := casbin.NewEnforcer(`D:\WorkSpace\go_iteration\hub\casbin\model_0.conf`, Adapter)
+	var modelType string
+	//rbac
+	modelType = `D:\WorkSpace\go_iteration\hub\casbin\rbac_model.conf`
+
+	enforcer, err := casbin.NewEnforcer(modelType, Adapter)
 	if err != nil {
 		fmt.Print(err)
 		return
@@ -74,6 +78,17 @@ func MiddleCasBin(e *casbin.Enforcer) gin.HandlerFunc {
 		err := c.Bind(&qr)
 		if err != nil {
 			c.Abort()
+		}
+
+		roles, _ := e.GetRolesForUser(qr.Sub)
+		fmt.Printf("roles : %s ,GetRolesForUser: %s\n", qr.Sub, roles)
+		domain, _ := e.GetDomainsForUser(qr.Sub)
+		fmt.Printf("roles : %s ,GetDomainsForUser: %s\n", qr.Sub, domain)
+		adapter := e.GetAdapter()
+		fmt.Printf("roles : %s ,GetAdapter: %+v\n", qr.Sub, adapter)
+		forUser := e.GetPermissionsForUser(qr.Sub, roles...)
+		for i := 0; i < len(forUser); i++ {
+			fmt.Printf("roles : %s ,GetPermissionsForUser: %+v\n", qr.Sub, forUser[i])
 		}
 
 		//判断策略中是否存在
