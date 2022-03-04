@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-
 	//mysql
 	Adapter, err := gormadapter.NewAdapter("mysql", "community:eps_community_8@tcp(192.168.6.101:3306)/community_dev", true)
 	if err != nil {
@@ -25,7 +24,9 @@ func main() {
 
 	var modelType string
 	//rbac
-	modelType = `D:\WorkSpace\go_iteration\hub\casbin\rbac_model.conf`
+	//modelType = `D:\WorkSpace\go_iteration\hub\casbin\config\rbac_model.conf`
+	//rbac_domain
+	modelType = `D:\WorkSpace\go_iteration\hub\casbin\config\rbac_domain_model.conf`
 
 	enforcer, err := casbin.NewEnforcer(modelType, Adapter)
 	if err != nil {
