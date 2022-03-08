@@ -6,6 +6,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -13,27 +14,31 @@ import (
 func registerRouter(r *gin.Engine) {
 	//创建请求
 	r.GET("/api/:id/visitor", func(c *gin.Context) {
-		resultSuccess(c)
+		responseCustom(c)
 	})
 	r.POST("/api/:id/visitor", func(c *gin.Context) {
-		resultSuccess(c)
+		responseCustom(c)
 	})
 	r.PUT("/api/:id/visitor", func(c *gin.Context) {
-		resultSuccess(c)
+		responseCustom(c)
 	})
 	r.DELETE("/api/:id/visitor", func(c *gin.Context) {
-		resultSuccess(c)
+		responseCustom(c)
 	})
 }
 
-func resultSuccess(c *gin.Context) {
+func responseCustom(c *gin.Context) {
 	var message string = "成功"
 	var code int = 200
-	var aa string = "data"
+	//var aa string = "data"
+
+	if c.Errors.String() != "" {
+		message = fmt.Sprintf("Fail :%+v", c.Errors.String())
+		code = 440
+	}
+
 	c.JSON(http.StatusOK, gin.H{
 		"code":    code,
 		"message": message,
-		"data":    aa,
-		"result":  "true",
 	})
 }

@@ -10,6 +10,7 @@ import (
 	"fmt"
 )
 
+//桩函数
 func RegxSub(args ...interface{}) (interface{}, error) {
 	if err := validateVariadicArgs(2, args...); err != nil {
 		return false, fmt.Errorf("%s: %s", "keyMatch2", err)
