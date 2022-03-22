@@ -1,6 +1,26 @@
 /*
-@Time   : 2022/3/22 15:20 
+@Time   : 2022/3/22 15:20
 @Author : ckx0709
 @Remark :
 */
-package colly
+package main
+
+import (
+	"fmt"
+	"github.com/gocolly/colly/v2"
+)
+
+func main() {
+	c := colly.NewCollector()
+
+	// Find and visit all links
+	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
+		e.Request.Visit(e.Attr("href"))
+	})
+
+	c.OnRequest(func(r *colly.Request) {
+		fmt.Println("Visiting", r.URL)
+	})
+
+	c.Visit("http://go-colly.org/")
+}
