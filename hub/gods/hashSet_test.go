@@ -5,4 +5,8 @@
 */
 package gods
 
-func Test
+import "testing"
+
+func TestHashSet(t *testing.T) {
+	HashSet()
+}

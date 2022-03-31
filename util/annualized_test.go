@@ -8,6 +8,7 @@ package util
 import (
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestConv2DEC3(t *testing.T) {
@@ -31,4 +32,9 @@ func TestGetDayZeroClock(t *testing.T) {
 
 	annualized, a := GetAnnualized(total, supplies, rate)
 	fmt.Printf("%+v\n%f", annualized, a)
+}
+
+func TestGetAnnualized(t *testing.T) {
+	format := time.Unix(60, 0).UTC().Format("15:04:05")
+	fmt.Print(format)
 }

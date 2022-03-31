@@ -10,6 +10,7 @@ require (
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
 	github.com/docker/docker v20.10.9+incompatible
 	github.com/eclipse/paho.mqtt.golang v1.2.0
+	github.com/emirpasic/gods v1.12.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gocolly/colly/v2 v2.1.0
@@ -20,6 +21,8 @@ require (
 	github.com/montanaflynn/stats v0.6.6
 	github.com/oklog/ulid/v2 v2.0.2
 	github.com/robfig/cron/v3 v3.0.1
+	github.com/sirupsen/logrus v1.8.1
+	github.com/valyala/fasthttp v1.31.0
 	github.com/xyproto/permissions2 v0.0.0-20210728112904-5a3038edf035
 	github.com/yedf/dtm v1.0.0
 	github.com/zcalusic/sysinfo v0.0.0-20210905121133-6fa2f969a900
@@ -73,11 +76,9 @@ require (
 	github.com/opencontainers/image-spec v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
-	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/temoto/robotstxt v1.1.1 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.31.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	github.com/xyproto/cookie v0.0.0-20210319112338-2e0ffd4b75a9 // indirect
 	github.com/xyproto/pinterface v0.0.0-20200807103852-04e20752b31c // indirect
