@@ -17,10 +17,10 @@ var Cli2 mqtt.Client
 
 func init() {
 	mqtt.ERROR = log.New(os.Stdout, "", 0)
-	opts := mqtt.NewClientOptions().AddBroker("tcp://47.98.231.220:1883").
-		SetClientID("SN:2").
-		SetUsername("adminCKX002").
-		SetPassword("ZGZYZZJ-001-CKX")
+	opts := mqtt.NewClientOptions().AddBroker("tcp://192.168.6.120:4001").
+		SetClientID("ckx-test-client").
+		SetUsername("admin").
+		SetPassword("Airobot@emqx202103")
 
 	//使用证书登录
 	//opts.SetTLSConfig(tlsConfig)

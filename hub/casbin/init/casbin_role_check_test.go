@@ -5,9 +5,14 @@
 */
 package init
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestCasRoleCheck(t *testing.T) {
 	CasRoleCheck()
 }
 
+func TestCasRoleCheck2(t *testing.T) {
+
+}

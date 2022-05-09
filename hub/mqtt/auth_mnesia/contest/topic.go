@@ -6,6 +6,7 @@
 package contest
 
 const (
-	TopicTest = "/healthbot/to_service/12/376e54a23d014312b28fa52a6d91e1bd/status"
+	//TopicTest = "/healthbot/to_service/12/376e54a23d014312b28fa52a6d91e1bd/status"
+	TopicTest = "/healthbot/to_robot/376e54a23d014312b28fa52a6d91e1bd"
 )
 

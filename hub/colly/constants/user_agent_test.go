@@ -7,7 +7,6 @@ package constants
 
 import (
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"testing"
 )
 
@@ -45,5 +44,8 @@ func TestGetRandUserAgent3(t *testing.T) {
 }
 
 func TestExpr_GetRegexp(t *testing.T) {
-	log.Warnf("[TestExpr_GetRegexp] err =%s","13")
+	str := "<link rel=\"dns-prefetch\" href=\"//194.5.193.183:80\">"
+	rxp := ExprProxy1.GetRegexp()
+	allString := rxp.FindAllString(str, -1)
+	fmt.Printf("%+v\n", allString)
 }

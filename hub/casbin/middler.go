@@ -6,6 +6,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"github.com/casbin/casbin/v2"
 	"github.com/gin-gonic/gin"
@@ -43,8 +44,8 @@ func MiddleCasBin(e *casbin.Enforcer) gin.HandlerFunc {
 
 		//判断策略中是否存在0
 		//aa, err := e.Enforce(qr.Sub, obj, act)
-		aa, err := e.Enforce(qr.Sub, obj, act, true)
-		aa, err = e.Enforce("admin", "community_r_1", "/api/1/visitor", "GET")
+		aa, err := e.Enforce(qr.Sub, "visitor", obj, act)
+		//aa, err = e.Enforce("admin", "community_r_1", "/api/1/visitor", "GET")
 		if err != nil {
 			_ = c.Error(err)
 			fmt.Println("e.Enforce error")
@@ -54,6 +55,7 @@ func MiddleCasBin(e *casbin.Enforcer) gin.HandlerFunc {
 			c.Next()
 		} else {
 			fmt.Println("权限没有通过")
+			_ = c.Error(errors.New("权限没有通过"))
 			c.Next()
 		}
 	}

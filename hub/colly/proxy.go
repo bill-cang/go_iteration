@@ -19,6 +19,8 @@ var (
 	ProxyListPool *arraylist.List
 	proxySource   = []string{
 		"https://proxy.seofangfa.com/",
+		"https://ip.jiangxianli.com/?page=1",
+		"https://ip.jiangxianli.com/?page=2",
 	}
 	ProxyInvalidMap = sync.Map{}
 )
@@ -54,11 +56,23 @@ func init() {
 
 }
 
+//设置代理
 func SetCollyProxy(c *colly.Collector) {
 	if proxy, index := getRandProxy(); proxy != "" {
 		//_ = c.SetProxy("http://182.34.206.193:25624")
 		ProxyInvalidMap.Store(c.ID, index)
 		_ = c.SetProxy(proxy)
+	}
+}
+
+//移除无用的代理
+func RemoveCollyProxy(c *colly.Collector) {
+	if load, ok := ProxyInvalidMap.Load(c.ID); ok {
+		index := load.(int)
+		if pxy, ok := ProxyListPool.Get(index); ok {
+			log.Warnf("[RemoveInvalidProxy] remove proxy %s.", pxy.(string))
+			ProxyListPool.Remove(index)
+		}
 	}
 }
 
@@ -70,11 +84,4 @@ func getRandProxy() (string, int) {
 	}
 	log.Warnf("[getRandProxy] proxy is poor.")
 	return "", 0
-}
-
-func RemoveInvalidProxy(index int) {
-	if pxy, ok := ProxyListPool.Get(index); ok {
-		log.Warnf("[RemoveInvalidProxy] remove proxy %s.", pxy.(string))
-		ProxyListPool.Remove(index)
-	}
 }

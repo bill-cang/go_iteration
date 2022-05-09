@@ -17,7 +17,7 @@ func TestMiddleCasBin2(t *testing.T) {
 
 	//domains, _ := GlobalEnforcer.GetDomainsForUser("admin")
 
-	enforce, err := GlobalEnforcer.Enforce("ckx", "station", "/api/officeID/station", "DEL")
+	enforce, err := GlobalEnforcer.Enforce("admin", "visitor", "/api/234325435234/visitor", "PUT")
 	if err != nil {
 		fmt.Print(err)
 		return
@@ -62,7 +62,6 @@ func TestMiddleCasBin4(t *testing.T) {
 
 	Permissions := GlobalEnforcer.GetPermissionsForUser("admin")
 	fmt.Printf("GetPermissionsForUser :%+v\n", Permissions)
-
 
 	manager := GlobalEnforcer.GetRoleManager()
 	mRoles, _ := manager.GetRoles("admin")

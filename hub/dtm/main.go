@@ -5,7 +5,7 @@
 */
 package main
 
-import (
+/*import (
 	"fmt"
 	"github.com/yedf/dtm/dtmsvr"
 )
@@ -15,5 +15,4 @@ func main() {
 	gid := dtmsvr.GenGid()
 	fmt.Println(gid)
 
-}
-
+}*/

@@ -17,6 +17,6 @@ func GetCollyClient() (collector *colly.Collector) {
 	//伪装终端
 	extensions.RandomUserAgent(collector)
 	//伪装请求头部
-	extensions.Referer(collector)
+	//extensions.Referer(collector)
 	return collector
 }
