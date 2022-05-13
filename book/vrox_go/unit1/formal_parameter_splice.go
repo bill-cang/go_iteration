@@ -11,10 +11,12 @@ package unit1
 	}
 }*/
 
+var TestVariable = "abcdefg"
+
 type IntSliceHeader struct {
-	Data []int
-	Len  int
-	Cap  int
+	Data []int `gorm:"column:data"`
+	Len  int   `gorm:"column:len"`
+	Cap  int   `gorm:"column:cap"`
 }
 
 func twice(x IntSliceHeader) {

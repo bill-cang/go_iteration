@@ -5,11 +5,6 @@
 */
 package main
 
-import (
-	"fmt"
-	"regexp"
-)
-
 type IA interface {
 	Eat()
 	Song()
@@ -32,14 +27,4 @@ func (a *A) Eat() {
 
 type B struct {
 	A
-}
-
-func main() {
-	//strs := make([]string, 0)
-
-	compile := regexp.MustCompile("column:([\\w]+);?")
-
-	findString := compile.FindStringSubmatch("column:master;comment:负责人")
-	fmt.Println(findString[1])
-
 }
