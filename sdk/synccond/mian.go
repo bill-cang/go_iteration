@@ -3,6 +3,12 @@
 @Author : ckx0709
 @Remark :
 sync.Cond 实现一个变量条件，控制唤醒一组goroutines得场景。
+特性：
+sync.Cond一旦创建使用 不允许被拷贝，由noCopy和copyChecker来限制保护。
+Wait()操作先是递增notifyList.wait属性 然后将goroutine封装进sudog，将notifyList.wait赋值给sudog.ticket,然后将sudog插入notifyList链表中
+Singal()实际是按照notifyList.notify跟notifyList链表中节点的ticket匹配 来确定唤醒的goroutine，因为notifyList.notify和notifyList.wait都是原子递增的，故而有了FIFO的语义
+Broadcast()相对简单 就是唤醒全部等待的goroutine
+
 实现发布订阅
 */
 package main
