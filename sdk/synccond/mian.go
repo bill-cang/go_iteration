@@ -2,8 +2,7 @@
 @Time   : 2022/6/8 9:32
 @Author : ckx0709
 @Remark :
-sync.Cond 条件变量用来协调想要访问共享资源的那些 goroutine，
-当共享资源的状态发生变化的时候，它可以用来通知被互斥锁阻塞的 goroutine。
+sync.Cond 实现一个变量条件，控制唤醒一组goroutines得场景。
 实现发布订阅
 */
 package main
@@ -32,6 +31,7 @@ func (e *ExChange) Publish(do func()) {
 	e.Cond.L.Unlock()
 	log.Println("Publish done")
 	e.Done = true
+	//唤醒全部等待的goroutine
 	e.Cond.Broadcast()
 }
 
