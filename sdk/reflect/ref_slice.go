@@ -7,14 +7,15 @@ package reflect
 
 import (
 	"reflect"
+	"unsafe"
 )
 
 //
-func GetSliRevByIndex(array interface{}, ind int) (ptr uintptr) {
+func GetSliRevByIndex(array interface{}, ind int) (ptr unsafe.Pointer) {
 	rev := reflect.ValueOf(array)
 	if rev.Kind() != reflect.Slice {
-		return reflect.Zero(nil).UnsafeAddr()
+		return reflect.ValueOf(array).UnsafePointer()
 	}
 
-	return (*reflect.SliceHeader)(rev.Slice(ind, ind+1).UnsafePointer()).Data
+	return rev.Slice(ind, ind+1).UnsafePointer()
 }
