@@ -10,7 +10,3 @@ import "sync/atomic"
 var SupperMan struct {
 	Key atomic.Value
 }
-
-func Get() {
-
-}
