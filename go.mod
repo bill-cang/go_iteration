@@ -10,6 +10,7 @@ require (
 	github.com/casbin/gorm-adapter/v2 v2.1.0
 	github.com/casbin/gorm-adapter/v3 v3.5.0
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0
+	github.com/dlclark/regexp2 v1.4.0
 	github.com/docker/docker v20.10.9+incompatible
 	github.com/eclipse/paho.mqtt.golang v1.2.0
 	github.com/emirpasic/gods v1.12.0
@@ -21,6 +22,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.24.0
 	github.com/google/gopacket v1.1.19
 	github.com/jaypipes/ghw v0.8.0
+	github.com/kardianos/service v1.2.1
 	github.com/montanaflynn/stats v0.6.6
 	github.com/oklog/ulid/v2 v2.0.2
 	github.com/robfig/cron/v3 v3.0.1
@@ -28,6 +30,7 @@ require (
 	github.com/valyala/fasthttp v1.31.0
 	github.com/xyproto/permissions2 v0.0.0-20210728112904-5a3038edf035
 	github.com/zcalusic/sysinfo v0.0.0-20210905121133-6fa2f969a900
+	golang.org/x/sys v0.0.0-20210817142637-7d9622a276b7
 	golang.org/x/tools v0.1.5
 	google.golang.org/appengine v1.6.6
 	gorm.io/driver/mysql v1.1.2
@@ -113,7 +116,6 @@ require (
 	golang.org/x/image v0.0.0-20200430140353-33d19683fad8 // indirect
 	golang.org/x/mod v0.4.2 // indirect
 	golang.org/x/net v0.0.0-20210805182204-aaa1db679c0d // indirect
-	golang.org/x/sys v0.0.0-20210817142637-7d9622a276b7 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
