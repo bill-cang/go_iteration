@@ -1,0 +1,57 @@
+syntax = "proto3"; // 版本声明，使用Protocol Buffers v3版本
+
+option go_package = "/rpc";  // 指定生成的Go代码的路径
+
+import "pb/common.proto"; //
+
+service Office{
+  rpc GetByID(IDRequest) returns (OfficeResponse);
+  rpc FindByCurrent(CurrentRequest) returns (OfficeResponseList);
+  rpc FindInIDs(IDsRequest) returns (OfficeResponseList);
+  rpc Save(OfficeBaseRequest) returns (OfficeBaseResponse);
+}
+
+message OfficeResponse{
+  string ID = 1;
+  string Name = 2;
+  string FirmID = 3;
+  string FirmName = 4;
+  string BlocID = 5;
+  string BlocName = 6;
+  string Province = 7;
+  string City = 8;
+}
+
+message OfficeResponseList {
+  repeated OfficeResponse Offices = 1;
+}
+
+message OfficeBaseRequest {
+  string Name = 1;            //名称
+  string Logo = 2;            //机构logo
+  string Master = 3;          //负责人
+  string Phone = 4;           //电话
+  string Email = 5;           //邮箱
+  string ProvinceID = 6;      //所属省id
+  string CityID = 7;          //所属市id
+  string Address = 8;         //地址
+  string Remark = 9;          //描述信息
+  repeated  string Applications = 10;  //应用IDs
+  string ID = 11; //id
+  string  BlockID = 12; // 集团ID
+}
+
+message OfficeBaseResponse {
+  int64  Rows = 1;
+}
+
+
+
+
+
+
+
+
+
+
+
